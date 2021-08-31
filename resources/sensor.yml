@@ -27,6 +27,7 @@ spec:
               metadata:
                 generateName: dag-diamond-
               spec:
+                serviceAccountName: codefresh-sa
                 entrypoint: diamond
                 templates:
                 - name: diamond
