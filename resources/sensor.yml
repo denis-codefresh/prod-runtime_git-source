@@ -58,4 +58,9 @@ spec:
                     - name: message
                   container:
                     image: alpine:3.7
+                    command: [sh, -c]
+                    args: ["
+                      sleep 5 &&
+                      echo {{inputs.parameters.message}}
+                    "]
                     command: [echo, "{{inputs.parameters.message}}"]
