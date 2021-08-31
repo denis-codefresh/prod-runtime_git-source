@@ -1,3 +1,11 @@
+# The following workflow executes a diamond workflow
+# 
+#   A
+#  / \
+# B   C
+#  \ /
+#   D
+
 apiVersion: argoproj.io/v1alpha1
 kind: Sensor
 metadata:
