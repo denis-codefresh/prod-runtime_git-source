@@ -1,0 +1,42 @@
+apiVersion: argoproj.io/v1alpha1
+kind: EventSource
+metadata:
+  name: github
+spec:
+  eventBusName: codefresh-eventbus
+  service:
+    ports:
+      - port: 13000
+        targetPort: 13000
+  github:
+    example:
+      repositories:
+        - owner: denis-codefresh
+          names:
+            - argo-events-playground
+      # Github will send events to following port and endpoint
+      webhook:
+        # endpoint to listen to events on
+        endpoint: /push
+        # port to run internal HTTP server on
+        port: "13000"
+        # HTTP request method to allow. In this case, only POST requests are accepted
+        method: POST
+        # url the event-source will use to register at Github.
+        # This url must be reachable from outside the cluster.
+        # The name for the service is in `<event-source-name>-eventsource-svc` format.
+        # You will need to create an Ingress or Openshift Route for the event-source service so that it can be reached from GitHub.
+        url: http://6a84-193-243-159-58.ngrok.io
+      # type of events to listen to.
+      # following listens to everything, hence *
+      # You can find more info on https://developer.github.com/v3/activity/events/types/
+      events:
+        - "*"
+
+      apiToken:
+        name: github-access
+        key: token
+
+      insecure: true
+      active: true
+      contentType: json
