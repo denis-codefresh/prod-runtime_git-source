@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Sensor
 metadata:
   name: spawn-diamond-wf
-  namespace: local-runtime5
+  namespace: prod-runtime
 spec:
   template:
     serviceAccountName: operate-workflow-sa
