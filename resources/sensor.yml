@@ -68,4 +68,4 @@ spec:
                   container:
                     image: alpine:3.7
                     command: [sh, -c]
-                    args: ["sleep 10; echo {{inputs.parameters.message}}"]
+                    args: ["sleep 10; eho {{inputs.parameters.message}}"]
