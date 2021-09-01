@@ -13,7 +13,7 @@ metadata:
   namespace: prod-runtime
 spec:
   template:
-    serviceAccountName: operate-workflow-sa
+    serviceAccountName: codefresh-sa
   eventBusName: codefresh-eventbus
   dependencies:
     - name: git-push
